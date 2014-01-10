@@ -116,12 +116,12 @@ class LogStash::Inputs::Ganglia < LogStash::Inputs::Base
       data["program"] = "ganglia"
       event["log_host"] = data["hostname"]
       
-      event["val"] = data["val"]
+      #event["val"] = data["val"]
       
       
       #  -      %w{dmax tmax slope type units}.each do |info|
       # Fields in the data packet itself
-      %w{name spoof format}.each do |info|
+      %w{name spoof format val}.each do |info|
         event[info] = data[info]
       end
       # Fields that are from MetaData
